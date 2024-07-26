@@ -110,9 +110,14 @@ button {
         </div>
       </div>
     </div>
-
+    <audio id="beepSound" src="w.mp3" preload="auto"></audio>
     <!-- Script -->
     <script>
+       
+ // Add an event listener to the button to play the beep sound on click
+
+       const show = document.getElementById('btn-start');
+       const beepSound = document.getElementById('beepSound');
         let focusButton = document.getElementById("focus");
 let buttons = document.querySelectorAll(".btn");
 let shortBreakButton = document.getElementById("shortbreak");
@@ -132,6 +137,9 @@ const appendZero = (value) => {
   value = value < 10 ? `0${value}` : value;
   return value;
 };
+show.addEventListener('click', () => {
+            beepSound.play();
+        });
 
 reset.addEventListener(
   "click",
@@ -220,7 +228,11 @@ startBtn.addEventListener("click", () => {
       }
     }, 1000);
   }
+
 });
+
+
+       
     </script>
   </body>
 </html>

@@ -12,24 +12,46 @@
           }
           .container{
             height: 300px;
-            width: 450px;
+            width: 100%;
             
           }
+         
+         .a{display: inline-block;
+          margin-bottom: 40px;
+    display: flex;
+    padding: 10px 20px;
+    font-size: 2em;
+    font-weight: 600;
+    border: 2px solid rgba(0,0,0,0.5);
+    border-radius: 40px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5),
+    inset 5px 5px 20px rgba(255,255,255,0.2),
+    inset -5px -5px 15px rgba(0,0,0,0.75);
+    
+
+         }
           
             </style>
 </head>
 <body>
-  
+  <audio id="beepSound" src="w.mp3" preload="auto"></audio>
         <div class="container">
         
         </div>
-        <button >
-            click for quotes<br>specially
-            picken  <br>up from my
-            diary
+       
+        <button class="a" id="n">
+           Click to get Quotes
+           
             </button>
         <script>
-            let idx = 0;
+           
+          const a = document.getElementById('n');
+          const beepSound = document.getElementById('beepSound');
+          a.addEventListener('click', () => {
+            beepSound.play();
+        });
+          
+          let idx = 0;
 
 const poem = [
 'You are in danger of living a life so comfortable and soft that you will die without ever realizing your true potential,',

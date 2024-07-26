@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Popup Iframes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="c">
+    <iframe style="border: 0;" src="4.html" height="600px"></iframe>
+    <!-- Buttons to open different popups -->
+    <div class="button-container">
+        
+        <button class="openPopup" id="b2" data-url="2.html">F</button>
+        <button class="openPopup" id="b3" data-url="3.html">C</button>
+        <button class="openPopup" id="b4" data-url="7.html"> B</button>
+        <button class="openPopup" id="b5"  data-url="d.html"> T</button>
+        <button class="openPopup" id="b6" data-url="e.html"> Q</button>
+        <button class="openPopup" id="b7" data-url="q.html"> C</button>
+        <button class="openPopup" id="b8" data-url="z.html"> E</button>
+        <button class="openPopup" id="b9" data-url="1.html"> M</button>
+        
+
+    </div>
+</div>
+
+    <!-- Popup container -->
+    <div id="popup" class="popup hidden">
+        <button id="closePopup" class="close-button">&times;</button>
+        <iframe id="popupIframe" src="" frameborder="0" class="popup-content"></iframe>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

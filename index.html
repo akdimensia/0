@@ -66,17 +66,19 @@
 </head>
 <body>
    
+   
     <div id="website-container">
         <div class="circle circle2" id="mn" style="--clr:#fff"><i></i></div>
         <h1>AKDimensia</h1>
         <h3>Crafted by AKD</h3>
        
-        <a href="tools/tools.html">Enter</a>
+        <a href="tools/i.html">Enter</a>
       
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
+        
         // Setup
         let scene = new THREE.Scene();
         let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000);
@@ -158,6 +160,47 @@
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
+        
+        
+        const cockpit = document.createElement('div');
+        cockpit.id = 'cockpit';
+        cockpit.style.position = 'fixed';
+        cockpit.style.bottom = '0';
+        cockpit.style.left = '0';
+        cockpit.style.width = '100%';
+        cockpit.style.backgroundColor = '#333';
+        cockpit.style.color = 'white';
+        cockpit.style.textAlign = 'center';
+        cockpit.style.padding = '20px';
+        cockpit.style.boxShadow = '0 -2px 5px rgba(0, 0, 0, 0.5)';
+        cockpit.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        cockpit.style.transform = 'translateY(100%)';
+        cockpit.style.opacity = '0';
+
+        // Create content for the cockpit
+        const heading = document.createElement('h3');
+        heading.textContent = 'Msg fromCaptain Arjun : spaceship out of fuel';
+        cockpit.appendChild(heading);
+
+
+
+        // Append cockpit to the body
+        document.body.appendChild(cockpit);
+
+        // Function to show the cockpit
+        function showCockpit() {
+            cockpit.style.transform = 'translateY(0)';
+            cockpit.style.opacity = '1';
+
+            // Hide the cockpit after 2 seconds
+            setTimeout(() => {
+                cockpit.style.transform = 'translateY(100%)';
+                cockpit.style.opacity = '0';
+            }, 2000);
+        }
+
+        // Show the cockpit when the page loads
+        window.addEventListener('load', showCockpit);
     </script>
 </body>
 </html>

@@ -11,9 +11,9 @@
             overflow: hidden;
             width: 100%;
             height: 100%;
-            background-color: black;
+            background-color: rgb(0, 0, 0);
             font-family: Arial, sans-serif;
-            color: white;
+            color: rgb(0, 0, 0);
         }
 
         #website-container {
@@ -36,27 +36,41 @@
         }
 
         #website-container a {
-            color: #ffcc00;
+            color: #000000;
             text-decoration: none;
             font-size: 2em;
             display: inline-block;
             margin-top: 20px;
-            border: 2px solid #ffcc00;
+            border: 2px solid #000000;
             padding: 10px 20px;
             transition: all 0.3s ease;
         }
+        .circle::before
+{    
+    content: '';
+    position:absolute;
+   bottom: 8%;
+   right: 5%;
+  z-index: -1;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: var(--clr);
+    box-shadow: 0 0 50px var(--clr),
+    0 0 50px var(--clr)
+}
 
-        #website-container a:hover {
-            background-color: hsl(0, 0%, 100%);
-            color: black;
-        }
+      
        
     </style>
 </head>
 <body>
+   
     <div id="website-container">
-        <h1>ArjunKD Inc.</h1>
-        <p>physicality is everything so wake up to reality</p>
+        <div class="circle circle2" id="mn" style="--clr:#fff"><i></i></div>
+        <h1>AKDimensia</h1>
+        <h3>Crafted by AKD</h3>
+       
         <a href="tools/tools.html">Enter</a>
       
     </div>
@@ -76,7 +90,7 @@
             color: 0xffffff,
             size: 3,
             sizeAttenuation: false,
-            map: new THREE.TextureLoader().load('https://threejs.org/examples/textures/sprites/disc.png'),
+            map: new THREE.TextureLoader().load('b.png'),
             transparent: true
         });
         let starVertices = [];
@@ -93,7 +107,7 @@
         // Create galaxies
         function createGalaxy() {
             let galaxyGeometry = new THREE.SphereGeometry(5, 32, 32);
-            let galaxyMaterial = new THREE.MeshBasicMaterial({ color: 0xaaaaaa });
+            let galaxyMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
             let galaxy = new THREE.Mesh(galaxyGeometry, galaxyMaterial);
             galaxy.position.set(
                 (Math.random() - 0.5) * 15000,
@@ -109,8 +123,8 @@
         }
 
         // Create eternal light
-        let lightGeometry = new THREE.SphereGeometry(400, 64, 64);
-        let lightMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, emissive: 0xffffff, transparent: true, opacity: 0.8 });
+        let lightGeometry = new THREE.SphereGeometry(14, 64, 64);
+        let lightMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, emissive: 0xffffff, transparent: true, opacity: 1 });
         let eternalLight = new THREE.Mesh(lightGeometry, lightMaterial);
         eternalLight.position.set(0, 0, -5000);
         scene.add(eternalLight);
@@ -122,7 +136,7 @@
         function animate() {
             requestAnimationFrame(animate);
             stars.rotation.x += 0.0003;
-            stars.rotation.y += 0.0003;
+            stars.rotation.y += -0.0003;
 
             if (zoomIn) {
                 camera.position.z -= speed;
@@ -130,6 +144,7 @@
                 if (camera.position.z <= -4900) {
                     zoomIn = false;
                     document.getElementById('website-container').style.display = 'block';
+                   
                 }
             }
 

@@ -1,5 +1,5 @@
 // Get references to the popup elements
-alert('all in time is running');
+
 const popup = document.getElementById('popup');
 const popupIframe = document.getElementById('popupIframe');
 const closePopup = document.getElementById('closePopup');
